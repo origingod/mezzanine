@@ -13,7 +13,7 @@
 {% ifinstalled mezzanine.blog %}
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
 <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
-{% endifinstalled %}
+{% endifinstalled %}a
 
 {% compress css %}
 <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
@@ -61,7 +61,10 @@
     {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>{% endif %}
 </div>
 <div class="navbar-collapse collapse">
+    {% ifinstalled mezzanine.blog %}
     {% search_form "all" %}
+    {% endifinstalled %}
+
     {% page_menu "pages/menus/dropdown.html" %}
 </div>
 </div>
